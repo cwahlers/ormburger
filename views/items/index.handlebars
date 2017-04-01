@@ -1,0 +1,50 @@
+
+    <div class="row">
+      <div class="col-md-3 col-md-offset-2">  
+          <span class="item-container">
+            {{#each items}}
+              {{#unless devoured}}
+                <li class="list-group-item item-item"> {{burger_name}}
+
+                <form action="/items/devour" method="POST">
+                   <button type="submit" id={{id}} class="btn btn-default">Devour</button>
+                </form>
+                </li>
+
+              {{/unless}}
+            {{/each}}
+          </span>
+      </div>
+
+      <div class="col-md-3">
+        <span class="devour-container">
+          {{#each items}}
+              {{#if devoured}}
+                <li class="list-group-item item-item">{{burger_name}} 
+                  <form action="/items/delete" method="POST">
+                     <button type="submit" id={{id}} class="btn btn-default">Delete</button>
+                  </form>
+                </li>
+              {{/if}}
+            {{/each}}
+        </span>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-2">
+        <h2>Place Your Order</h2>
+    
+        <form action="/items/create" method="POST">
+          <input name="burger_name" placeholder="burger_name"></input>
+          <input type="submit" class="btn btn-default"></input>
+        </form>
+
+
+
+      </div>
+    </div>
+
+
+
