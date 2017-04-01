@@ -31,11 +31,10 @@ router.post("/create", function(req, res){
 
 router.post("/devour", function(req, res){
 
-	var table = "items"; 
-	var objColVals2 = { 'devoured': true };
-	var cond = "id = 11";
+	var objColVals2 = { devoured: true };
+	var cond = " id = " + req.body.id;
 
-	burgeritem.update(table, objColVals2, cond, function(response){
+	burgeritem.update(objColVals2, cond, function(response){
 		res.redirect('/items');
 	});
 })
@@ -43,10 +42,9 @@ router.post("/devour", function(req, res){
 
 router.post("/delete", function(req, res){
 	
-	var table = "items"; 
-	var condition = "id = 4";
+	var condition = " id = " + req.body.id;
 
-	burgeritem.delete(table, condition, function(response){
+	burgeritem.delete(condition, function(response){
 		res.redirect('/items');
 	});
 })

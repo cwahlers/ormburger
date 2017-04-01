@@ -7,7 +7,8 @@
                 <li class="list-group-item item-item"> {{burger_name}}
 
                 <form action="/items/devour" method="POST">
-                   <button type="submit" id={{id}} class="btn btn-default">Devour</button>
+                  <input style="display:none;" type="number" name="id" value={{id}}>  
+                  <button type="submit" id={{id}} class="btn btn-default">Devour</button>
                 </form>
                 </li>
 
@@ -22,7 +23,8 @@
               {{#if devoured}}
                 <li class="list-group-item item-item">{{burger_name}} 
                   <form action="/items/delete" method="POST">
-                     <button type="submit" id={{id}} class="btn btn-default">Delete</button>
+                    <input style="display:none;" type="number" name="id" value={{id}}>  
+                    <button type="submit" id={{id}} class="btn btn-default">Delete</button>
                   </form>
                 </li>
               {{/if}}
